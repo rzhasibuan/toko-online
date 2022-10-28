@@ -17,10 +17,13 @@
                     </x-forms.select>
 
                     <x-forms.input name="name" id="name" :label="__('field.product_name')" :isRequired="true" />
-                    
+
                     <x-forms.input name="slug" id="slug" :label="__('field.slug')" :isRequired="true" readonly />
 
                     <x-forms.input type="number" name="weight" id="weight" :label="__('field.weight')" :isRequired="true"/>
+
+{{--                jenis bahan--}}
+                    <x-forms.input type="text" name="age" id="age" :label="__('field.age')" :isRequired="true"/>
 
                     <x-forms.input type="number" name="price" id="price" :label="__('field.price')" :isRequired="true" />
 

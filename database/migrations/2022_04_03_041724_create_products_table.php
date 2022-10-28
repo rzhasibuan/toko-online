@@ -19,6 +19,11 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('thumbnails');
+            $table->string('jenis_bahan');
+            $table->string('detail_bahan');
+            $table->string('spesifikasi_bahan');
+            $table->string('bonus');
+            $table->integer('stok');
             $table->string('price');
             $table->string('weight');
             $table->text('description');

@@ -38,7 +38,7 @@ class Input extends Component
         $this->hintText = $hintText;
     }
 
-  
+
     public function render()
     {
         return view('components.forms.input');
