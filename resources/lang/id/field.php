@@ -10,6 +10,12 @@ return [
     'created_at' => 'Dibuat',
     'price' => 'Harga',
     'description' => 'Deskripsi',
+    'jenis_bahan' => 'Jenis Bahan',
+    'detail_bahan' => 'Detail Bahan',
+    'spesifikasi_bahan' => 'Spesifikasi Bahan',
+    'bonus' => 'Bonus',
+    'stok' => 'Stok',
+
 
     // Category
     'category_name' => 'Nama Kategori',

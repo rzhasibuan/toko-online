@@ -60,6 +60,10 @@
                                     <span>Berat : </span>
                                     <p>{{ $data['product']->weight }} Gram</p>
                                 </li>
+                                <li>
+                                    <span>Bahan : </span>
+                                    <p>{{ $data['product']->jenis_bahan }}</p>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -71,10 +75,24 @@
                                 <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Deskripsi Produk</a>
                             </li>
                         </ul>
+{{--                        <div class="tab-content">--}}
+{{--                            <div class="tab-pane active" id="tabs-1" role="tabpanel">--}}
+{{--                                <h6>Deskripsi Produk</h6>--}}
+{{--                                {!! $data['product']->description !!}--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                                <h6>Deskripsi Produk</h6>
-                                {!! $data['product']->description !!}
+                                <h6>Detail Bahan</h6>
+                                {!! $data['product']->detail_bahan !!}
+                            </div>
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <h6>Spesifikasi Bahan</h6>
+                                {!! $data['product']->spesifikasi_bahan !!}
+                            </div>
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <h6>Bonus</h6>
+                                {!! $data['product']->bonus !!}
                             </div>
                         </div>
                     </div>

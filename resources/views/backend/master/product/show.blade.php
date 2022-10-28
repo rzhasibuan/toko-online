@@ -22,10 +22,35 @@
                                 <td>{{ __('field.category_name') }}</td>
                                 <td>: {{ $data['product']->category->name }}</td>
                             </tr>
-    
+
                             <tr>
                                 <td>{{ __('field.price') }}</td>
                                 <td>: {{ rupiah($data['product']->price) }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>{{ __('field.jenis_bahan') }}</td>
+                                <td>: {{ ($data['product']->jenis_bahan) }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>{{ __('field.detail_bahan') }} :</td>
+                                <td>{!! ($data['product']->detail_bahan) !!}</td>
+                            </tr>
+
+                            <tr>
+                                <td>{{ __('field.spesifikasi_bahan') }} :</td>
+                                <td> {!!  ($data['product']->spesifikasi_bahan) !!}</td>
+                            </tr>
+
+                            <tr>
+                                <td>{{ __('field.bonus') }}</td>
+                                <td>: {{ ($data['product']->bonus) }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>{{ __('field.stok') }}</td>
+                                <td>: {{ ($data['product']->stok) }}</td>
                             </tr>
                             <tr>
                                 <td>{{ __('field.weight') }}</td>

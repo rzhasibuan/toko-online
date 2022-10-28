@@ -22,8 +22,15 @@
 
                     <x-forms.input type="number" name="weight" id="weight" :label="__('field.weight')" :isRequired="true"/>
 
-{{--                jenis bahan--}}
-                    <x-forms.input type="text" name="age" id="age" :label="__('field.age')" :isRequired="true"/>
+                    <x-forms.input type="text" name="jenis_bahan" id="jenis_bahan" :label="__('field.jenis_bahan')" :isRequired="true"/>
+
+                    <x-forms.input type="textarea" name="detail_bahan" id="detail_bahan" :label="__('field.detail_bahan')" :isRequired="true" />
+
+                    <x-forms.input type="textarea" name="spesifikasi_bahan" id="spesifikasi_bahan" :label="__('field.spesifikasi_bahan')" :isRequired="true" />
+
+                    <x-forms.input type="text" name="bonus" id="bonus" :label="__('field.bonus')" :isRequired="true"/>
+
+                    <x-forms.input type="text" name="stok" id="stok" :label="__('field.stok')" :isRequired="true"/>
 
                     <x-forms.input type="number" name="price" id="price" :label="__('field.price')" :isRequired="true" />
 

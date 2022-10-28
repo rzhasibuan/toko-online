@@ -32,7 +32,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->except('_token');
-        dd($data);
+//        dd($data);
         $this->product->store($data,true,['thumbnails'],'product/thumbnails');
         return redirect()->route('master.product.index')->with('success',__('message.store'));
     }

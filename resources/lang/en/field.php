@@ -10,13 +10,17 @@ return [
     'created_at' => 'Created At',
     'price' => 'Price',
     'description' => 'Description',
+    'jenis_bahan' => 'Material Type',
+    'detail_bahan' => 'Material Details',
+    'spesifikasi_bahan' => 'Spesification ',
+    'bonus' => 'Bonus',
+    'stok' => 'Stock',
 
     // Category
     'category_name' => 'Category Name',
 
     // Product
     'product_name' => 'Product Name',
-    
 
     // Order
     'order_invoice' => 'Invoice',

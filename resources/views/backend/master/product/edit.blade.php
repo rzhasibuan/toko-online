@@ -9,19 +9,29 @@
                 @slot('content')
 
                     <x-forms.select name="categories_id" id="categories_id"
-                        label="{{ __('button.select') }} {{ __('menu.category') }}" :isRequired="true">                        
+                        label="{{ __('button.select') }} {{ __('menu.category') }}" :isRequired="true">
                         @foreach ($data['category'] as $category)
                             <option value="{{ $category->id }}" {{ $data['product']->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                         @endforeach
                     </x-forms.select>
 
                     <x-forms.input name="name" id="name" :label="__('field.product_name')" :isRequired="true" value="{{ $data['product']->name }}"/>
-                    
+
                     <x-forms.input name="slug" id="slug" :label="__('field.slug')" :isRequired="true" readonly value="{{ $data['product']->slug }}"/>
 
                     <x-forms.input type="number" name="price" id="price" :label="__('field.price')" :isRequired="true" value="{{ $data['product']->price }}"/>
 
                     <x-forms.input type="number" name="weight" id="weight" :label="__('field.weight')" :isRequired="true" value="{{ $data['product']->weight }}"/>
+
+                    <x-forms.input type="text" name="jenis_bahan" id="jenis_bahan" :label="__('field.jenis_bahan')" :isRequired="true" value="{{$data['product']->jenis_bahan}}"/>
+
+                    <x-forms.input type="textarea" name="detail_bahan" id="detail_bahan" :label="__('field.detail_bahan')" :isRequired="true" value="{{$data['product']->detail_bahan}}" />
+
+                    <x-forms.input type="textarea" name="spesifikasi_bahan" id="spesifikasi_bahan" :label="__('field.spesifikasi_bahan')" :isRequired="true" value="{{$data['product']->spesifikasi_bahan}}" />
+
+                    <x-forms.input type="text" name="bonus" id="bonus" :label="__('field.bonus')" :isRequired="true" value="{{$data['product']->bonus}}"/>
+
+                    <x-forms.input type="text" name="stok" id="stok" :label="__('field.stok')" :isRequired="true" value="{{$data['product']->stok}}"/>
 
                     <x-forms.input type="textarea" name="description" id="description" :label="__('field.description')" :isRequired="true" value="{{ $data['product']->description }}"/>
 
