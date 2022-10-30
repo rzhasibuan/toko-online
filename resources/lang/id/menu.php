@@ -5,6 +5,7 @@ return [
     'category'          => 'Kategori',
     'product'           => 'Produk',
     'customer'          => 'Pelanggan',
+    'pesan'          => 'Pesan',
 
     // Order
     'order'             => 'Pesanan',

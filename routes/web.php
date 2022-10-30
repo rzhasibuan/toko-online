@@ -18,6 +18,7 @@ use App\Http\Controllers\Setting\WebconfigController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Role;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,9 @@ Route::prefix('app')->group(function () {
 
         Route::prefix('customer')->name('customer.')->group(function () {
             Route::get('/', [CustomerController::class, 'index'])->name('index');
+            Route::get('/list', [ChatController::class, 'lists'])->name('list');
+            Route::get('/show/{id}',[ChatController::class,'show'])->name('show');
+            Route::post('/store',[ChatController::class,'store'])->name('store');
         });
 
         Route::prefix('master')->name('master.')->group(function(){
@@ -114,6 +118,12 @@ Route::middleware('auth','role:user')->group(function(){
 
     Route::prefix('account')->name('account.')->group(function(){
         Route::get('/',[AccountController::class,'index'])->name('index');
+    });
+
+    Route::prefix('pesan')->name('chat')->group(function (){
+        Route::get('/', [ChatController::class, 'index'])->name('index');
+        Route::post('/store', [ChatController::class, 'store'])->name('store');
+        Route::get('/distroy/{id}', [ChatController::class, 'distroy'])->name('distroy');
     });
 
 

@@ -2381,7 +2381,7 @@ ol {
 	height: 50px;
 	margin-bottom: 25px !important;
   }
-  
+
   .select2.select2-container .select2-selection {
 	height: 50px;
 	width: 100%;
@@ -2399,7 +2399,7 @@ ol {
 	font-size: 14px;
   }
 
-  
+
 
 .checkout__form .checkout__form__input input::-webkit-input-placeholder {
 	color: #666666;
@@ -3732,4 +3732,13 @@ ol {
 		width: 100%;
 		font-size: 24px;
 	}
+}
+
+/*nww*/
+
+.chat {
+    overflow: scroll;
+    height: 310px;
+    padding: 30px;
+    border: lightgray 1px solid;
 }

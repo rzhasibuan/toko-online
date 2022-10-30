@@ -5,6 +5,7 @@ return [
     'category'          => 'Category',
     'product'          => 'Product',
     'customer'          => 'Customer',
+    'pesan'             => 'Message',
 
     // Order
     'order'             => 'Order',
@@ -14,7 +15,7 @@ return [
     'order_shipped'     => 'Shipped Order',
     'order_completed'   => 'Completed Order',
     'order_canceled'   => 'Canceled Order',
-    
+
     // Setting
     'setting'           => 'Settings',
     'setting_address'   => 'Shipping Address',

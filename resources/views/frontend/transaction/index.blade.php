@@ -35,6 +35,7 @@
                             <td>{{ $order->created_at }}</td>
                             <td>
                               <a href="{{ route('transaction.show',$order->invoice_number) }}" class="btn btn-danger">Detail</a>
+                                <a href="{{ url('pesan')  }}" class="btn btn-success">Tanya Penjual</a>
                             </td>
                           </tr>
                           @endforeach
@@ -45,31 +46,5 @@
         </div>
     </section>
 
-    <section class="chat">
-        <div class="container">
-            <h2>Hubungin Penjual</h2>
-            <div class="row">
-                <div class="col-md-6" style="border: solid 1px black">
-                    <div class="col-md-12 mt-2">
-                        <p class="text-left">Admin</p>
-                        <div class="alert alert-secondary text-left" role="alert">
-                            A simple primary alert—check it out!
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                       <p class="text-right">User</p>
-                        <div class="alert alert-success text-right" role="alert">
-                            A simple primary alert—check it out!
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Ketik pesan" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Kirim</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 @endsection
