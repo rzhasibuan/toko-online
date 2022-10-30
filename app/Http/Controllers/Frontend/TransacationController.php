@@ -10,7 +10,7 @@ use App\Services\Midtrans\CreateSnapTokenService;
 use Illuminate\Http\Request;
 
 class TransacationController extends Controller
-{   
+{
     protected $orderService;
     protected $order;
     public function __construct(OrderService $orderService,Order $order)
@@ -29,6 +29,9 @@ class TransacationController extends Controller
     {
         $data['order'] = $this->order->Query()->where('invoice_number',$invoice_number)->first();
         $snapToken = $data['order']->snap_token;
+
+
+//        dd($data['order']->invoice_number);
         if (empty($snapToken)) {
             // Jika snap token masih NULL, buat token snap dan simpan ke database
             $midtrans = new CreateSnapTokenService($data['order']);
@@ -44,6 +47,13 @@ class TransacationController extends Controller
         $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 3]);
         return back()->with('success',__('message.order_received'));
     }
+
+    public function settlement($invoice_number)
+    {
+        $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 1]);
+        return back()->with('success',__('message.order_received'));
+    }
+
 
     public function canceled($invoice_number)
     {

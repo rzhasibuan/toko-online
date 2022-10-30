@@ -38,14 +38,14 @@ Route::post('payments/midtrans-success', [MidtransController::class, 'success'])
 Route::prefix('app')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
-        
+
 
         Route::prefix('customer')->name('customer.')->group(function () {
             Route::get('/', [CustomerController::class, 'index'])->name('index');
         });
 
         Route::prefix('master')->name('master.')->group(function(){
-            
+
             Route::prefix('category')->name('category.')->group(function(){
                 Route::get('/',[CategoryController::class,'index'])->name('index');
                 Route::get('/create',[CategoryController::class,'create'])->name('create');
@@ -81,7 +81,7 @@ Route::prefix('app')->group(function () {
         Route::prefix('setting')->name('setting.')->group(function(){
                 Route::get('/shipping',[WebconfigController::class,'shipping'])->name('shipping');
                 Route::post('/shipping',[WebconfigController::class,'shippingUpdate'])->name('shippingUpdate');
-                
+
                 Route::get('/web',[WebconfigController::class,'web'])->name('web');
                 Route::post('/web',[WebconfigController::class,'webUpdate'])->name('web.update');
         });
@@ -102,8 +102,9 @@ Route::middleware('auth','role:user')->group(function(){
     Route::prefix('transaction')->name('transaction.')->group(function(){
         Route::get('/',[TransacationController::class,'index'])->name('index');
         Route::get('/{invoice_number}',[TransacationController::class,'show'])->name('show');
-        Route::get('/{invoice_number}/received',[TransacationController::class,'received'])->name('received');
         Route::get('/{invoice_number}/canceled',[TransacationController::class,'canceled'])->name('canceled');
+        Route::get('/{invoice_number}/received',[TransacationController::class,'received'])->name('received');
+        Route::get('/{invoice_number}/settlement',[TransacationController::class,'settlement'])->name('settlement');
     });
 
     Route::prefix('checkout')->name('checkout.')->group(function(){

@@ -1,5 +1,4 @@
 # sistem informasi penjualan online
-
 ## install
 ```gitignore
 clone this repo

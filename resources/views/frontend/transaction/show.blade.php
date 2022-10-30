@@ -50,6 +50,7 @@
                                             <address>
                                                 <strong>{{ __('text.order_status') }}:</strong>
                                                 <div class="mt-2">
+{{--                                                    status pembayaran--}}
                                                     {!! $data['order']->status_name !!}
                                                 </div>
                                             </address>
@@ -141,8 +142,10 @@
                                     <button class="btn btn-primary btn-icon icon-left" id="pay-button"><i
                                             class="fa fa-credit-card"></i>
                                         Process Payment</button>
+
                                     <a href="{{ route('transaction.canceled', $data['order']->invoice_number) }}" class="btn btn-danger btn-icon icon-left"><i class="fa fa-times"></i>
                                         Cancel Order</a>
+
                                 @elseif ($data['order']->status == 2)
                                     <a href="{{ route('transaction.received', $data['order']->invoice_number) }}"
                                         class="btn btn-primary text-white btn-icon icon-left"><i
@@ -150,7 +153,7 @@
                                         Order Received</a>
                                 @endif
                             </div>
-                            <button class="btn btn-warning btn-icon icon-left"><i class="fa fa-print"></i> Print</button>
+{{--                            <button class="btn btn-warning btn-icon icon-left"><i class="fa fa-print"></i> Print</button>--}}
                         </div>
                     </div>
                 </div>
@@ -204,22 +207,26 @@
 
             snap.pay('{{ $data['order']->snap_token }}', {
                 // Optional
-                onSuccess: function(result) {
-                    /* You may add your own js here, this is just example */
-                    // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-                    console.log(result)
+                onSuccess: function(result){
+                    /* You may add your own implementation here */
+                    // alert("payment success!"); console.log(result);
+                    // route('transaction.received', result.order_id)
+                    // location.href = "http://www.w3schools.com";
+                    window.location.replace(`/transaction/${result.order_id}/settlement`);
+                    // location.reload();
+
                 },
-                // Optional
-                onPending: function(result) {
-                    /* You may add your own js here, this is just example */
-                    // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-                    console.log(result)
+                onPending: function(result){
+                    /* You may add your own implementation here */
+                    alert("wating your payment!"); console.log(result);
                 },
-                // Optional
-                onError: function(result) {
-                    /* You may add your own js here, this is just example */
-                    // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-                    console.log(result)
+                onError: function(result){
+                    /* You may add your own implementation here */
+                    alert("payment failed!"); console.log(result);
+                },
+                onClose: function(){
+                    /* You may add your own implementation here */
+                    alert('you closed the popup without finishing the payment');
                 }
             });
         });

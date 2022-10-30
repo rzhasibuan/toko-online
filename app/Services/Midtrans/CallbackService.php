@@ -21,6 +21,8 @@ class CallbackService extends Midtrans
         // Cari transaksi berdasarkan ID
         $transaction = Order::where('invoice_number', $order_id)->first();
 
+        dd($transaction);
+
         // Handle notification status midtrans
         if ($status == 'capture') {
             if ($type == 'credit_card') {

@@ -8,7 +8,7 @@ use App\Repositories\CrudRepositories;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
-{   
+{
     protected $order;
     public function __construct(Order $order)
     {
@@ -36,5 +36,10 @@ class OrderController extends Controller
         $request->merge(['status' => 2]);
         $this->order->Query()->where('invoice_number',$request->invoice_number)->first()->update($request->only('status','receipt_number'));
         return back()->with('success',__('message.order_receipt'));
+    }
+
+    public function update(Request $request, $id)
+    {
+
     }
 }
