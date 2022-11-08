@@ -52,7 +52,7 @@
                                 <input type="hidden" name="cart_product_id" value="{{ $data['product']->id }}">
                             </div>
                             <button type="submit" class="cart-btn"><span class="icon_bag_alt"></span> Tambah keranjang</button>
-                            <a class="btn btn-round btn-outline-success" href=""><span class="icon_chat"></span></a>
+                            <a class="btn btn-round btn-outline-success" href="{{ url('pesan')  }}"><span class="icon_chat"></span></a>
 
                         </div>
                         <div class="product__details__widget">

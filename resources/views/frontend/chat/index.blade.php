@@ -35,17 +35,15 @@
                          @foreach($room_chat as $chat)
                              @if($chat->user_id == auth()->user()->id)
 
-                                 <div class="text-right">
+                                 <div class="d-flex flex-column text-right chat-item-right">
                                      <small>{{strtolower(auth()->user()->name)}} - {{strtolower($chat->created_at->diffForHumans())}} </small>
-                                     <br>
                                      <p>{!! $chat->pesan !!}</p>
                                  </div>
                              @else
-                                 <p class="text-left">
+                                 <div class="d-flex flex-column text-left">
                                      <small>{{strtolower($chat->user->name)}} - {{strtolower($chat->created_at->diffForHumans())}} </small>
-                                     <br>
                                  <p>{!! $chat->pesan !!}</p>
-                                 </p>
+                                 </div>
                              @endif
 
                          @endforeach
