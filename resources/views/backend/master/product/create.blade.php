@@ -34,7 +34,7 @@
 
                     <x-forms.input type="number" name="price" id="price" :label="__('field.price')" :isRequired="true" />
 
-                    <x-forms.input type="textarea" name="description" id="description" :label="__('field.description')" :isRequired="true" />
+{{--                    <x-forms.input type="textarea" name="description" id="description" :label="__('field.description')" :isRequired="true" />--}}
 
                     <x-forms.input type="file" name="thumbnails" id="thumbnails" :label="__('field.thumbnails')" :isRequired="true" />
 

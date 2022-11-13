@@ -56,10 +56,10 @@
                                 <td>{{ __('field.weight') }}</td>
                                 <td>: {{ $data['product']->weight }}</td>
                             </tr>
-                            <tr>
-                                <td>{{ __('field.description') }}</td>
-                                <td>: {!! $data['product']->description !!}</td>
-                            </tr>
+{{--                            <tr>--}}
+{{--                                <td>{{ __('field.description') }}</td>--}}
+{{--                                <td>: {!! $data['product']->description !!}</td>--}}
+{{--                            </tr>--}}
                         </table>
                     </div>
                     <div class="col-md-6">
