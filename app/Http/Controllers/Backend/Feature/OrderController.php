@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Feature\Order;
 use App\Repositories\CrudRepositories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -22,7 +23,11 @@ class OrderController extends Controller
         }else{
             $data['order'] = $this->order->Query()->where('status',$status)->get();
         }
-        return view('backend.feature.order.index',compact('data'));
+
+        $bulan = DB::select('select distinct month(created_at) as bulan from orders');
+        return view('backend.feature.order.index',compact('data'), [
+            'bulan' => $bulan
+        ]);
     }
 
     public function show($id)

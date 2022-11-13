@@ -78,9 +78,12 @@ Route::prefix('app')->group(function () {
                 Route::get('/{status?}',[OrderController::class,'index'])->name('index');
                 Route::get('/detail/{id}',[OrderController::class,'show'])->name('show');
                 Route::post('/detail/input-resi',[OrderController::class,'inputResi'])->name('inputresi');
+                Route::get('/laporan/{id}',[\App\Http\Controllers\Backend\LaporanController::class,'order'])->name('laporan');
             });
 
         });
+
+
 
         Route::prefix('setting')->name('setting.')->group(function(){
                 Route::get('/shipping',[WebconfigController::class,'shipping'])->name('shipping');
