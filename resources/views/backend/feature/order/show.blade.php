@@ -7,8 +7,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-md-right">
-                                <button class="float-lg-left mb-lg-0 mb-3  btn btn-warning btn-icon icon-left"><i
-                                        class="fa fa-print"></i> Print</button>
+{{--                                <button class="float-lg-left mb-lg-0 mb-3  btn btn-warning btn-icon icon-left"><i--}}
+{{--                                        class="fa fa-print"></i> Print</button>--}}
                                 <div class="mb-lg-0 mb-3">
                                     <a href="javascript:;" class="btn btn-success btn-icon icon-left" data-toggle="modal"
                                         data-target="#resiModal" data-id="{{ $data['order']->invoice_number }}"><i

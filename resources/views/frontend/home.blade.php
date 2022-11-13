@@ -8,9 +8,6 @@
                     <div class="categories__item categories__large__item set-bg"
                         data-setbg="{{ asset('me') }}/img/komi.jpg">
                         <div class="categories__text">
-{{--                            <p>Beragam Merchandise Anime Mulai Dari Tshirt, Hoddie, Action Figure Semuanya Tersedia Di Anime--}}
-{{--                                Store.</p>--}}
-{{--                            <a href="#">Jelajahi Sekarang</a>--}}
                         </div>
                     </div>
                 </div>
@@ -23,7 +20,7 @@
                                     <div class="categories__text">
                                         <h4>{{ $category->name }}</h4>
                                         <p>{{ $category->Products()->count() }} item</p>
-                                        <a href="#">Jelajahi</a>
+                                        <a href="{{ route('category.show',$category->slug) }}">Jelajahi</a>
                                     </div>
                                 </div>
                             </div>
