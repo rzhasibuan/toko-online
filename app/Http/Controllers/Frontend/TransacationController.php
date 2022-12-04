@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Feature\Order;
+use App\Models\Feature\OrderDetail;
+use App\Models\Master\Product;
 use App\Repositories\CrudRepositories;
 use App\Services\Feature\OrderService;
 use App\Services\Midtrans\CreateSnapTokenService;
@@ -13,10 +15,15 @@ class TransacationController extends Controller
 {
     protected $orderService;
     protected $order;
-    public function __construct(OrderService $orderService,Order $order)
+    protected $orderDetail;
+    protected $product;
+
+    public function __construct(OrderService $orderService,Order $order, OrderDetail $orderDetail, Product $product)
     {
         $this->orderService = $orderService;
         $this->order = new CrudRepositories($order);
+        $this->orderDetail = new CrudRepositories($orderDetail);
+        $this->product = New CrudRepositories($product);
     }
 
     public function index()
@@ -51,7 +58,17 @@ class TransacationController extends Controller
     public function settlement($invoice_number)
     {
         $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 1]);
+
+        $order = $this->order->Query()->where('invoice_number', $invoice_number)->first();
+        $orderDetail = $this->orderDetail->Query()->where('order_id', $order->id)->get();
+
+        foreach ($orderDetail as $detail){
+             $stok = $detail->Product->stok - $detail->qty;
+             $this->product->Query()->where('id', $detail->product_id)->first()->update(['stok' => $stok]);
+        }
+
         return back()->with('success',__('message.order_received'));
+
     }
 
 

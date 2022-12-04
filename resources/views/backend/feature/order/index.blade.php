@@ -66,7 +66,7 @@
                         <th>{{ __('field.order_customer') }}</th>
                         <th>{{ __('field.order_total') }}</th>
                         <th>{{ __('field.order_status') }}</th>
-                        <th>{{ __('field.created_at') }}</th>
+                        <th>{{ __('Tanggal') }}</th>
                         <th>{{ __('field.action') }}</th>
                     </tr>
                 @endslot
@@ -77,7 +77,7 @@
                             <td>{{ $order->Customer->name }}</td>
                             <td>{{ $order->total_pay }}</td>
                             <td>{!! $order->status_name !!}</td>
-                            <td>{{ $order->created_at }}</td>
+                            <td>{{ $order->updated_at }}</td>
                             <td>
                                 <x-button.dropdown-button :title="__('field.action')">
                                     <a class="dropdown-item has-icon" href="{{ route('feature.order.show',$order->id) }}"><i class="fa fa-eye"></i>

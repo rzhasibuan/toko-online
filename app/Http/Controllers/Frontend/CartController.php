@@ -13,10 +13,12 @@ class CartController extends Controller
 {
     protected $cart;
     protected $cartService;
-    public function __construct(Cart $cart,CartService $cartService)
+    protected $product;
+    public function __construct(Cart $cart,CartService $cartService, Product $product)
     {
         $this->cart = new CrudRepositories($cart);
         $this->cartService = $cartService;
+        $this->product = new CrudRepositories($product);
     }
 
     public function index()
@@ -27,12 +29,14 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
-        try {
-           $this->cartService->store($request);
-            return redirect()->route('cart.index')->with('success',__('message.cart_success'));
-        } catch (\Throwable $th) {
-            dd($th);
-        }
+        $stok = $this->product->Query()->where('id', $request->cart_product_id)->first();
+
+        $request->validate([
+            'cart_qty' => "numeric|min:1|max:$stok->stok"
+        ]);
+
+       $this->cartService->store($request);
+        return redirect()->route('cart.index')->with('success',__('message.cart_success'));
     }
 
     public function delete($id)

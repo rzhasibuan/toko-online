@@ -67,7 +67,7 @@
         <th>{{ __('field.order_customer') }}</th>
         <th>{{ __('field.order_total') }}</th>
         <th>{{ __('field.order_status') }}</th>
-        <th>{{ __('field.created_at') }}</th>
+        <th>{{ __('Tanggal') }}</th>
     </tr>
     @foreach ($data as $order)
         <tr>
@@ -89,7 +89,7 @@
                 Kadaluarsa
                 @endif
             </td>
-            <td>{{ $order->created_at }}</td>
+            <td>{{ $order->updated_at }}</td>
         </tr>
     @endforeach
 </table>

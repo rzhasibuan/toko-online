@@ -25,6 +25,7 @@ class OrderController extends Controller
         }
 
         $bulan = DB::select('select distinct month(created_at) as bulan from orders');
+        
         return view('backend.feature.order.index',compact('data'), [
             'bulan' => $bulan
         ]);

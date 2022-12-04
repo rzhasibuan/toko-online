@@ -16,7 +16,7 @@ class LaporanController extends Controller
     public function order($id) {
         $year = date('Y');
 
-        $data = DB::select("select * from orders where month(created_at) = $id and year(created_at) = $year");
+        $data = DB::select("select * from orders where month(created_at) = $id and year(created_at) = $year and status = 3");
 
         $pdf = PDF::loadView('backend.feature.order.laporan',[ 'data' => $data, 'bulan' => $id]);
         return $pdf->stream();

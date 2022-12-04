@@ -51,9 +51,18 @@
                                 </div>
                                 <input type="hidden" name="cart_product_id" value="{{ $data['product']->id }}">
                             </div>
+                            @if ($data['product']->stok > 0)
                             <button type="submit" class="cart-btn"><span class="icon_bag_alt"></span> Tambah keranjang</button>
+                            @else
+                            <button type="submit" class="cart-btn" style="background:darkgray !important" disabled><span class="icon_bag_alt"></span> Tambah keranjang</button>
+                            @endif
                             <a class="btn btn-round btn-outline-success" href="{{ url('pesan')  }}"><span class="icon_chat"></span></a>
-
+                        </div>
+                        <div class="stok">
+                        <p>Stok : {{$data['product']->stok}}</p>
+                            @error('cart_qty')
+                            <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="product__details__widget">
                         </form>
