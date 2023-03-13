@@ -79,6 +79,7 @@ Route::prefix('app')->group(function () {
                 Route::get('/detail/{id}',[OrderController::class,'show'])->name('show');
                 Route::post('/detail/input-resi',[OrderController::class,'inputResi'])->name('inputresi');
                 Route::get('/laporan/{id}',[\App\Http\Controllers\Backend\LaporanController::class,'order'])->name('laporan');
+                Route::get('/{invoice_number}/received',[TransacationController::class,'received'])->name('received');
             });
 
         });

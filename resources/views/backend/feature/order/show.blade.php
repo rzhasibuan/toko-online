@@ -17,6 +17,14 @@
                                     <a href="{{ route('feature.order.index') }}"
                                         class="btn btn-primary btn-icon icon-left"><i class="fa fa-arrow-left"></i>
                                         Kembali</a>
+                                        
+
+                                            @if($data['order']->status  !== 3)
+                                            <a href="{{ route('feature.order.received', $data['order']->invoice_number) }}"
+                                                class="btn btn-primary text-white btn-icon icon-left"><i
+                                                    class="fa fa-credit-card"></i>
+                                                Order Received</a>
+                                            @endif
                                 </div>
                             </div>
                             <hr class="mb-2">

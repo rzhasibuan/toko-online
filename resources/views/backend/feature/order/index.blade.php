@@ -86,6 +86,13 @@
                                     <a class="dropdown-item has-icon" href="#"><i class="fa fa-truck"></i>
                                         {{ __('Input Resi') }}</a>
                                     @endif
+
+                                    @if($order->status  !== 3)
+                                    <a href="{{ route('feature.order.received',$order->invoice_number) }}"
+                                        class="dropdown-item has-icon"><i
+                                            class="fa fa-credit-card"></i>
+                                        Order Received</a>
+                                    @endif
                                 </x-button.dropdown-button>
                             </td>
                         </tr>

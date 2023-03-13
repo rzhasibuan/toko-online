@@ -34,6 +34,7 @@ class OrderController extends Controller
     public function show($id)
     {
         $data['order'] = Order::find($id);
+        // dd($data['order']);
         return view('backend.feature.order.show',compact('data'));
     }
 
